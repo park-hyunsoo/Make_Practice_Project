@@ -1,3 +1,10 @@
+<?php
+    include_once $_SERVER['DOCUMENT_ROOT'].'/common/session.php';
+    if(isset($_SESSION['myMemberSes'])){
+        header("Location:./me.php");
+        exit;
+    }
+?>
 <!doctype html>
 <html>
 <head>
@@ -12,45 +19,9 @@
     <script type="text/javascript" src="./js/index.js"></script>
 </head>
 <body class="container">
-    <header>
-        <div id="myService"> Web Service </div>
-        
-        <div id="viewType">
-            <a href="./me.html" id="meLink"> me </a>
-            <a href="./all.html" id="allLink"> all </a>
-        </div>
-
-        <!-- 로그인 후 -->
-        <div id="myName">
-            <p> 안녕하세요. 님 </p>
-            <div id="logoutBox">
-                <input type="button" id="logoutBtn" value="로그아웃" />
-            </div>
-        </div>
-        
-        <!-- 로그인 전 -->
-        <div id="loginForm">
-            <form name="loginForm" method="post" action="./login.php">
-                <div id="loginEmailArea">
-                    <label for="loginEmail">E-Mail</label> <!-- 아이디 입력 -->
-                    <div class="loginInputBox">
-                        <input type="email" id="loginEmail" name="email" placeholder="이메일" required/> 
-                        <!-- pattern="[a-zA-Z].+[0-9]" 을 넣을 수 도 있다.-->
-                    </div>
-                </div>
-                <div id="loginPwArea">
-                    <label for="loginPw">Password</label> <!-- 패스워드 입력 -->
-                    <div class="loginInputBox">
-                        <input type="password" id="loginPw" name="loginPw" placeholder="비밀번호" required/> 
-                        <!-- pattern="[a-zA-Z].+[0-9]" 을 넣을 수 도 있다.-->
-                    </div>
-                </div>
-                <div class="loginSubmitBox">
-                    <input type="submit" id="loginSubmit" value="로그인" /> 
-                </div>
-            </form>
-        </div>
-    </header>
+    <?php
+    include_once $_SERVER['DOCUMENT_ROOT'].'/include/header.php';
+    ?>
     <!-- 컨테이너 부분 -->
     <div id="container">
     <section id="introSite"> <!-- 이렇게 섹션을 나눠논 부분을 pc에서는 전부 보이고 모바일에서는 보이지 않게 한다. -->
@@ -84,25 +55,37 @@
                     <div class="selectBox">
                         <select name="birthYear" id="birthYear">
                             <option value="">연도</option> <!-- 이 부분은 HTML5 달력으로 대체.. -->
-                            <option value="2018">2018</option>
-                            <option value="2017">2017</option>
-                            <option value="2016">2016</option>
+                            <?php
+                            //현재 연도를 구함
+                            $nowYear = date("Y",time());
+                            //현재 연도부터 1900년도까지 내림차순으로 option태그 생성
+                            for($i = $nowYear; $i >= 1900; $i--){?>
+                            <option value="<?=$i?>"><?=$i?></option>
+                            <?php
+                            }
+                            ?>
                         <select>
                     </div>
                     <div class="selectBox selectBoxMargin">
                         <select name="birthMonth" id="birthMonth">
                             <option value="">월</option> <!-- 이 부분은 HTML5 달력으로 대체.. -->
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            <?php
+                            for($i = 1; $i <= 12; $i++){?>
+                            <option value="<?=$i?>"><?=$i?></option>
+                            <?php
+                            }
+                            ?>
                         <select>
                     </div>
                     <div class="selectBox">
                         <select name="birthDay" id="birthDay">
                             <option value="">일</option> <!-- 이 부분은 HTML5 달력으로 대체.. -->
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            <?php
+                            for($i = 1; $i <= 31; $i++){?>
+                            <option value="<?=$i?>"><?=$i?></option>
+                            <?php
+                            }
+                            ?>
                         <select>
                     </div>
                 </div>
@@ -130,8 +113,6 @@
         </div>
     </section>
     </div>
-    <footer>
-        <p> My Web Service </p>
-    </footer>  
+
 </body>
 </html>
