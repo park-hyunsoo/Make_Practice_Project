@@ -14,11 +14,7 @@ try{
 
     
     } else{ // 업데이트 처리
-        $title=$_POST['title'];
-        $id=$_POST['id'];
-        $name=$_POST['name'];
-        $content=$_POST['content'];
-        update($pdo, $id, $title, $content, $name);
+        update($pdo, ['board_id'=> $_POST['id'], 'board_title'=>$_POST['title'], 'user_id'=> $_POST['name'], 'board_content' => $_POST['content']]);
         header('Location: list.php');
     }
 }catch(PDOException $e) {

@@ -11,15 +11,30 @@ function totalCount($pdo) {
     return $row[0];
 }
 
-function insert($pdo, $name, $title, $content) {
-    $query = 'INSERT INTO `board` (`user_id`, `board_title`, `board_content`) VALUES (:name, :title, :content)';
-    $parameters = [':name' => $name, ':title' => $title, ':content' => $content];
-    query($pdo, $query, $parameters);
+function insert($pdo, $fields) {
+    $query = 'INSERT INTO `board` (';
+    foreach ($fields as $key => $value) {
+      $query .= '`' . $key . '`,';
+    }
+    $query = rtrim($query, ',');
+    $query .= ') VALUES (';
+    foreach ($fields as $key => $value) {
+      $query .= ':' . $key . ',';
+    }
+    $query = rtrim($query, ',');
+    $query .= ')';
+    query($pdo, $query, $fields);
 }
 
-function update($pdo, $id, $title, $content, $name) {
-    $parameters = [':title' => $title, ':content' => $content, ':name' => $name, ':id' => $id];
-    query($pdo, 'UPDATE `board` SET `user_id` = :name, `board_title` = :title, `board_content` = :content WHERE `board_id` = :id', $parameters);
+function update($pdo, $fields) {
+    $sql = ' UPDATE `board` SET ';
+    foreach ($fields as $key => $value) {
+        $sql .= '`' . $key . '` = :' . $key . ',';
+    }
+    $sql = rtrim($sql, ',');
+    $sql .= ' WHERE `board_id` = :board_id';
+    
+    query($pdo, $sql, $fields);
 }
   
 function delete($pdo, $id) {

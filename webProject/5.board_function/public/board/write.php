@@ -10,10 +10,8 @@ if(!isset($_POST['title'])){
         include_once __DIR__.'/../../includes/dbconnect.php';
         include_once __DIR__ . '/../../includes/dbfunction.php';
         
-        $title=$_POST['title'];
-        $name=$_POST['name'];
-        $content=$_POST['content'];
-        insert($pdo, $name, $title, $content);
+        insert($pdo, ['user_id'=> $_POST['name'], 'board_title'=>$_POST['title'], 'board_content' => $_POST['content']]);
+        
         header('Location: list.php');
         
     }catch(PDOException $e) {
