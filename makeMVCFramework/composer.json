@@ -1,0 +1,15 @@
+{
+    "name": "root/project",
+    "authors": [
+        {
+            "name": "sample",
+            "email": "sample@example.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "app\\": "./"
+        }
+    },
+    "require": {}
+}
