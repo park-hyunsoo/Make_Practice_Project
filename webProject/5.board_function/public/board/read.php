@@ -1,10 +1,10 @@
 <?php
 try{
     include_once __DIR__.'/../../includes/dbconnect.php';
-    include_once __DIR__ . '/../../includes/dbfunction.php';
+    include_once __DIR__.'/../../includes/dbCommonFunction.php';
 
     $id = $_GET['id'];
-    $row=read($pdo, $id);
+    $row=read($pdo, 'board', 'board_id', $id);
 
     $title='상세보기';
     ob_start();

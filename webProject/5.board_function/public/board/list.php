@@ -2,10 +2,10 @@
 try{
     // 데이터베이스 연결 부
     include_once __DIR__.'/../../includes/dbconnect.php';
-    include_once __DIR__.'/../../includes/dbfunction.php';
+    include_once __DIR__.'/../../includes/dbCommonFunction.php';
 
     // 페이지 로직 실행
-    $result = readAll($pdo);
+    $result = readAll($pdo, 'board');
 
     // 콘텐츠 템플릿 호출
     $title = '글 목록';
