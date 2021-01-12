@@ -233,6 +233,10 @@ spa.shell = (function(){
             schema_map: configMap.anchor_schema_map
         });
       
+        // 기능 모듈을 설정 및 초기화
+        spa.chat.configModule({});
+        spa.chat.initModule(jqueryMap.$chat);
+
         // URI 앵커 변경 이벤트 처리
         // 모든 기능 모듈이 설정 및 초기화 된 후 실행 
         // 이렇게 하지 않으면 페이지 로드 시점에 앵커를 판단하는데 사용되는 트리거 이벤트를 모듈에서 처리할 수 없다.
