@@ -1,0 +1,61 @@
+/*
+* spa.css
+* 루트 네임스페이스 스타일
+*/
+/** 재설정 **/ 
+/* 브라우저마다 기본 설정이 다르므로 대부분 선택자를 재설정한다. */
+* {
+    margin:0;
+    padding:0;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+h1,h2,h3,h4,h5,h6,p{margin-bottm:10px;}
+ol,ul,dl{list-style-position:inside;}
+/** 재설정 끝 **/
+  
+/** 표준 선택자 시작
+표준 선택자를 조정, 브라우저 기본값을 신뢰하지 않으므로 특정 엘리먼트가 애플리케이션에서 일관된 스타일로 보이게 한다.
+다른 파일에서 얼마든지 수정할 수 있다. **/
+  
+body {
+    font:13px 'Trebuchet MS', Verdana, Helvetica, Arial, sans-serif;
+    color:#444;
+    background-color:#888;
+}
+a { text-decoration:none;}
+a:link, a:visited {color:inherit;}
+a:hover {text-decoration:underline;}
+strong{
+    font-weight:800;
+    color:#000;
+}
+/** 표준 선택자 끝 **/
+  
+/** spa 네임스페이스 선택자 시작 **/
+/* 루트 네임을 사용하는 엘리먼트에 적용할 선택자 */
+#spa{
+    position:absolute;
+    top:8px;
+    left:8px;
+    bottom:8px;
+    right:8px;
+    min-height:500px;
+    min-width:500px;
+    overflow:hidden;
+    border-radius:8px 8px 0 8px;
+    background-color:#fff; /* SPA 애플리케이션의 모든 내용을 포함하게끔 컨테이너 스타일을 정의 */ 
+}
+/** spa 네임스페이스 선택자 끝 **/
+  
+/** 유틸리티 선택자 시작 **/
+/* 나머지 모듈에서 사용할 유틸리티 선택자 정의 */
+.spa-x-select {}
+.spa-x-clearfloat{
+    height:0 !important;
+    float:none !important;
+    visibility: hidden !important;
+    clear: both !important;
+}
+/** 유틸리티 선택자 끝 **/
