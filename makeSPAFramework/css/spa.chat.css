@@ -1,0 +1,130 @@
+/*
+* spa.chat.css
+* Chat feature styles
+*/
+
+.spa-chat{  /* 채팅 슬라이더에 사용할 spa-chat 클래스 정의, 약간의 드롭 새도를 포함 */
+    position : absolute;
+    bottom : 0;
+    right : 0;
+    width : 25em;
+    height : 2em;
+    background : #fff;
+    border-radius : 0.5em 0 0 0; /* 테두리 */
+    border-style : solid;
+    border-width : thin 0 0 thin;
+    border-color : #888;
+    box-shadow : 0 0 0.75em 0 #888; /* 그림자 효과 */
+    z-index : 1;
+}
+  
+.spa-chat-head, .spa-chat-closer { /* 헤더 및 닫기 버튼 클래스에 사용할 규칙을 추가 */
+    position : absolute;
+    top : 0;
+    height : 2em;
+    line-height : 1.8em;
+    border-bottom : thin solid #888;
+    cursor : pointer;
+    background : #888;
+    color : white;
+    font-family : arial, helvetica, sans-serif;
+    font-weight : 800;
+    text-align : center;  
+}
+  
+.spa-chat-head { /* 헤더 전용 규칙을 추가 */
+    left : 0;
+    right : 2em;
+    border-raduis : 0.3em 0 0 0;
+}
+  
+.spa-chat-closer { /* 오른쪽 위 구석에 닫기 를 보여주기 위해 정의 헤더는 슬라이더를 여는 스팟이고
+    closer에는 다른 기능이 있으므로 헤더에 포함되지 않음 */ 
+    right : 0;
+    width : 2em;
+}
+  
+.spa-chat-closer:hover{
+    background : #800;
+}
+  
+.spa-chat-head-toggle{ /* 토글 버튼에 사용할 클래스 */
+    position : absolute;
+    top : 0;
+    left : 0;
+    width : 2em;
+    bottom : 0;
+    border-radius : 0.3em 0 0 0;
+}
+  
+.spa-chat-head-title {
+    position : absolute;
+    left : 50%;
+    width : 16em;
+    margin-left : -8em;
+} /* 엘리먼트를 가운데로 정렬하기 위해 음의 마진 트릭을 활용 */
+  
+.spa-chat-sizer { /* 슬라이더 콘텐츠를 담음 */
+    position : absolute;
+    top : 2em;
+    left : 0;
+    right : 0;
+}
+  
+.spa-chat-msgs { /* 메시지를 표시하는 엘리먼트에서 사용할 클래스, x 축 오버플로우는 숨기고 새로 스크롤바를 제공 */
+    /* y:auto 를 사용 시 스크롤바가 나타날때 텍스트 흐름이 충돌 할 수 있다. */
+    position : absolute;
+    top : 1em;
+    left : 1em;
+    right : 1em;
+    bottom : 4em;
+    padding : 0.5em;
+    border : thin solid #888;
+    overflow-x : hidden;
+    overflow-y : scroll;
+}
+  
+.spa-chat-box { /* 입력 필드와 전송 버튼이 있는 */
+    position : absolute;
+    height : 2em;
+    left : 1em;
+    right : 1em;
+    bottom : 1em;
+    border : thin solid #888;
+    background : #888;
+}
+  
+.spa-chat-box input[type=text] { /* 텍스트 박스에 적용 */
+    float : left;
+    width : 75%;
+    height : 100%;
+    padding : 0.5em;
+    border : 0;
+    background : #ddd;
+    color : #404040;
+}
+
+.spa-chat-box input[type=text]:focus{
+    background : #fff;
+}
+  
+.spa-chat-box div { /* 임의의 div 에 적용, 전송 버튼에 사용*/
+    float : left;
+    width : 25%;
+    height : 2em;
+    line-height : 1.9em;
+    text-align : center;
+    color : #fff;
+    font-weight : 800;
+    cursor : pointer;
+}
+  
+.spa-chat-box div:hover{
+    background-color : #444;
+    color : #ff0;
+}
+  
+.spa-chat-head:hover .spa-chat-head-toggle{ /* 커서가 위에올라 올때 마다 */
+    background : #aaa;
+}
+

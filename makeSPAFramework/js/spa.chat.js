@@ -15,9 +15,23 @@ spa.chat=(function(){ // 모듈의 네임스페이스를 생성
     // 모듈 스코프 변수 시작 
     var configMap ={ // HTML 템플릿과 기본 설정을 저장
             main_html : String()
-                +'<div style="padding:1em; color:#fff;">'
-                    + ' Say Hello To Chat '
-                +'</div>',
+            +'<div class="spa-chat">'
+                +'<div class="spa-chat-head">'
+                    +'<div class="spa-chat-head-toggle">+</div>'
+                    +'<div class="spa-chat-head-title">'
+                        + 'Chat'
+                    +'</div>'
+                +'</div>'
+                +'<div class="spa-chat-closer">x</div>'
+                +'<div class="spa-chat-sizer">'
+                    +'<div class="spa-chat-msgs"></div>'
+                        +'<div class="spa-chat-box">'
+                            +'<input type="text"/>'
+                            +'<div>send</div>'
+                        +'</div>'
+                    +'</div>'
+                +'</div>'
+            +'</div>',
             settable_map : {}
         },
         stateMap = {$container:null},

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+.snb_organization {
+  font-family: "돋움", Dotum, Helvetica, "Apple SD Gothic Neo", AppleGothic, Sans-serif;
+  font-size: 12px;
+  position: relative;
+  width: 220px;
+  height: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*# sourceMappingURL=style.css.map */

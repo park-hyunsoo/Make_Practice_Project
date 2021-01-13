@@ -1,0 +1,10 @@
+@mixin element-size($width: auto, $height: auto){
+    width: $width;
+    height: $height;
+}
+  
+@mixin element-center(){
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

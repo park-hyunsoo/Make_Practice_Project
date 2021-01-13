@@ -1,0 +1,7 @@
+.snb_organization {
+    font-family: $font-family-dotum;
+    font-size: $font-size-base;
+    position: relative;
+    @include element-size(220px, 500px);
+    @include element-center();
+}
