@@ -1,10 +1,55 @@
-@mixin element-size($width: auto, $height: auto){
+
+// ==================
+// 요소의 사이즈 속성 결정
+// ==================
+@mixin element-size($width: auto, $height: auto, $line-height: auto) {
     width: $width;
     height: $height;
+
+    @if $line-height != auto {
+        line-height: $height + $line-height;
+    }
 }
-  
+
+// ==================
+// block 레벨 요소를 가운데 정렬
+// ==================
 @mixin element-center(){
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+// ==================
+// 버튼 요소의 속성을 설정
+// ==================
+@mixin button-frame($color, $background, $border-size, $border-type, $border-color, $border-radius){
+    color: $color;
+    background-color: $background;
+    border: $border-size $border-type $border-color;
+    border-raidus: $border-radius;
+    cursor: pointer;
+}
+  
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height){
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+
+@mixin button-folder($type){
+    @include button-frame(#333, transparent, 0, solid, transparent, 0);
+    @include button-size(3px, 3px, 0, 0);
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    @if $type == plus {
+        background: url(../img/btn_plus.png) 0 0 no-repeat;
+    }
+    @else if $type == minus {
+        background: url(../img/btn_minus.png) 0 2px no-repeat;
+    }
 }
