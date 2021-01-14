@@ -4,6 +4,8 @@
  */
 tree.collection.Organization = function(sApiUrl){
     this._sApiUrl = sApiUrl;
+    this._aComposite = [];
+    
     this._requestOrganizations();
 };
 
