@@ -41,7 +41,7 @@ tree.model.Organization.prototype = {
      * 자식을 가지고 있는지 판단한다.
      * @returns {boolean}
      */
-    hssChildren : function(){
+    hasChildren : function(){
       return this._aChildren.length > 0;
     },
     

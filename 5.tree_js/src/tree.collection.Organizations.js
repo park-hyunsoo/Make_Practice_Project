@@ -11,6 +11,22 @@ tree.collection.Organization = function(sApiUrl){
 
 tree.collection.Organization.prototype = {
     /**
+    * 최상위 회사 조직 ID
+    * @type {number}
+    */
+    COMPANY_NODE : 0,
+
+    /**
+    * 최상위 조직 미지정 ID
+    */
+    UNSPECIFIED_NODE : 1,
+
+   /**
+   * 엘리먼트를 할당한다.
+   * @private
+   */
+
+    /**
     * 조직 리스트를 요청한다.
     * @private
     */
