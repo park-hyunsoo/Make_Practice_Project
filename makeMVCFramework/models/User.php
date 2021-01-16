@@ -26,6 +26,17 @@ class User extends DbModel
         return ['firstname', 'lastname', 'email', 'password', 'status'];
     }
 
+    public function labels(): array
+    {
+        return [
+            'fristname' => 'First name',
+            'lastname' => 'Last name',
+            'email' => 'Email',
+            'password' => 'Password',
+            'confirmPassword' => 'Confirm Password'
+        ];
+    }
+
     public function save()
     {
         $this->status = self::STATUS_INACTIVE;
