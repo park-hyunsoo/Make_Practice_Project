@@ -1,5 +1,6 @@
 <?php
 use app\core\form\Form;
+$this->title = 'Login';
 ?>
 <h1>Login</h1>
 <?php $form = Form::begin('',"post") ?>
